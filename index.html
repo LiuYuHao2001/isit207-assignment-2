@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AZoom Rental</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,8 +16,7 @@
         <a href="#">Return</a>
         <a href="#">Contact</a>
         <a href="#">About Us</a>
-        <a href="#">Login</a>
-        <!-- Allow toggle. If logged in, log out.  -->
+        <a href="#" id="loginButton" onclick="loginHandler()">Login</a>
       </nav>
     </header>
 
@@ -60,6 +59,45 @@
     <!-- Use cards or a grid layout to show different car types (e.g., Economy, Family, SUV, Luxury)
     Each card has a car image, title, price range -->
 
+    <section class="cars">
+      <!-- Tab Links -->
+      <ul class="tab-list">
+        <li data-tab-target="#economy" class="active tab-link">Economy</li>
+        <li data-tab-target="#family" class="tab-link">Family</li>
+        <li data-tab-target="#suv" class="tab-link">SUV</li>
+        <li data-tab-target="#luxury" class="tab-link">Luxury</li>
+      </ul>
+
+      <!-- Tab Contents -->
+      <div id="economy" data-tab-content class="active">
+        <img class="car-image" src="images/economy-honda-civic.avif" />
+        <img class="car-image" src="images/economy-mini-cooper.avif" />
+        <img class="car-image" src="images/economy-toyota-corolla.avif" />
+        <img class="car-image" src="images/economy-hyundai-elantra-GT.avif" />
+      </div>
+
+      <div id="family" data-tab-content>
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+      </div>
+
+      <div id="suv" data-tab-content>
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+      </div>
+
+      <div id="luxury" data-tab-content>
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+        <img class="car-image" src="" />
+      </div>
+    </section>
+
     <!-- 7. Additional Sections (Optional but Encouraged)
     Why Choose Us: List features like “24/7 Support,” “Mobile App,” “No Hidden Charges”
     Mobile App Promo: Highlight downloadable app with QR code or download buttons
@@ -77,5 +115,9 @@
         <a href="#">Return</a> | ...
       </div>
     </footer>
+
+    <script src="script.js" defer>
+      console.log("Javascript loaded successfully");
+    </script>
   </body>
 </html>
