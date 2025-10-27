@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Auth Demo</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="logo">AZoom</div>
+            <nav class="nav-menu">
+                <a href="#">Reserve</a>
+                <a href="#">Rent</a>
+                <a href="#">Return</a>
+                <a href="#">Contact</a>
+                <a href="#">About Us</a>
+                <a href="login.html">Login</a>
+            </nav>
+    </header>
+
+    <div class="login-form">
+        <div class="container">
+            <h1>User Authentication</h1>
+            <!-- Login Form -->
+            <form id="loginForm" class="form">
+                <h2>Login</h2>
+                <input type="text" id="inputted-username" placeholder="Username" required />
+                <input type="password" id="inputted-password" placeholder="Password" required />
+                <button type="submit">Login</button>
+                <p>
+                    No account? <a href="#" onclick="toggleView('registerForm')">Register</a> |
+                    <a href="#" onclick="toggleView('resetForm')">Forgot Password?</a>
+                </p>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="form hidden">
+                <h2>Register</h2>
+                <input type="email" id="registerEmail" placeholder="Email" required />
+                <input type="password" id="registerPassword" placeholder="Password" required />
+                <button type="submit">Register</button>
+                <p>
+                    Already have an account? <a href="#" onclick="toggleView('loginForm')">Login</a>
+                </p>
+            </form>
+            <!-- Reset Password Form -->
+            <form id="resetForm" class="form hidden">
+                <h2>Reset Password</h2>
+                <input type="email" id="resetEmail" placeholder="Enter your registered email" required />
+                <button type="submit">Reset Password</button>
+                <p>
+                    <a href="#" onclick="toggleView('loginForm')">Back to Login</a>
+                </p>
+            </form>
+            <!-- Welcome Message -->
+            <div id="welcome" class="hidden">
+                <h2>Welcome, <span id="userEmail"></span></h2>
+                <button onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

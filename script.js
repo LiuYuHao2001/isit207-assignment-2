@@ -1,15 +1,24 @@
 let loggedIn = false;
 
 // Login-Logout Handler
-function loginHandler() {
+function loginHandler(username, password) {
+    for (i = 0; i < userDatabase.length; i++) {
+        if (username == userDatabase[i].username) {
+            if (password == userDatabase[i].password) {
+                loggedIn = true;
+                console.log("User " + username + " has logged in.")
+                window.location.replace("index.html");
+            }
+        }
+        else console.log("Wrong username or password");
+    }
+
     if (loggedIn == false) {
-        loggedIn = true;
-        document.getElementById("loginButton").textContent = "Login";
-        console.log("User has logged in.")
+        document.getElementById("loginButton").textContent = "Logout";
     }
     else {
         loggedIn = false;
-        document.getElementById("loginButton").textContent = "Logout";
+        document.getElementById("loginButton").textContent = "Login";
         console.log("User has logged out.")
     }
 }
@@ -36,26 +45,6 @@ tabList.forEach(tab => {
 
 // Front-End Input Handler
 
-
-// Simulated Back-End
-// Customer reserves car – via the AZoom Car Rental website using a credit card
-var chosenVehicle
-var dailyRent
-var customerCreditCard
-// Customer rents car at the AZoom Car Rental office (Check that customer has picked up the vehicle)
-var pickedUp // Boolean
-var rentDuration
-// Customer returns car at a designated car park
-var returned // Boolean
-// Employee of AZoom Car Rental inspects the returned car – to ensure no damages
-var inspected // Boolean
-// Customer pays final bill – cost of rental and including any damages found 
-var rentalCost = dailyRent * rentDuration
-var damageCost = Math.floor(Math.random() * 100)
-var paymentDue = rentalCost + damageCost;
-
-
-
 // Login & Registration
 class Login {
     constructor(username, password) {
@@ -65,16 +54,83 @@ class Login {
 }
 
 const employee1 = new Login("Employee", "password");
-const user1 = new Login("Test User", "password");
+const customer1 = new Login("Test User", "password");
+let newCustomer = new Login(null, null);
 
-let userDatabase = [user1]
+let userDatabase = [employee1, customer1]
+loginForm = getElementById("login-form");
 
-var inputtedUsername
-var inputtedPassword
+// Check if input is correct
+let loginButton = document.getElementById("login-button");
+loginButton.addEventListener("click", loginHandler(loginForm.username, loginForm.password));
 
-function Register(username, password) {
-    userDatabase[userDatabase.length++] = new Login(username, password)
+let signUpButton = document.getElementById("sign-up-button");
+signUpButton.addEventListener("click", SignUp(loginForm.username, loginForm.password));
+
+function SignUp(username, password) {
+    userDatabase[userDatabase.length++] = new Login(username, password);
 }
 
-registerButton = getElementById("register");
-registerButton.addEventListener("click", Register(inputtedPassword, inputtedUsername));
+// Simulated Back-End
+
+// Employee Side
+// Customer reserves car – via the AZoom Car Rental website using a credit card
+let chosenVehicle;
+let dailyRent;
+let customerCreditCard;
+// Customer rents car at the AZoom Car Rental office (Check that customer has picked up the vehicle)
+let pickedUp; // Boolean
+let rentDuration;
+// Customer returns car at a designated car park
+let returned; // Boolean
+// Employee of AZoom Car Rental inspects the returned car – to ensure no damages
+let inspected; // Boolean
+// Customer pays final bill – cost of rental and including any damages found 
+let rentalCost = dailyRent * rentDuration;
+let damageCost;
+let paymentDue = rentalCost + damageCost;
+
+// let inputtedUsername
+// let inputtedPassword
+
+
+// Helper to toggle views
+function toggleView(idToShow) {
+    const forms = ['loginForm', 'registerForm', 'resetForm', 'welcome'];
+    forms.forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById(idToShow).classList.remove('hidden');
+}
+
+// Simulate register
+document.getElementById('registerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    localStorage.setItem('username', email);
+    localStorage.setItem('password', password);
+    alert('Registration successful. You can now log in.');
+    toggleView('loginForm');
+});
+
+// Simulate login
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('inputted-username').value;
+    const password = document.getElementById('inputted-password').value;
+    const savedEmail = localStorage.getItem('username');
+    const savedPassword = localStorage.getItem('password');
+    if (email === savedEmail && password === savedPassword) {
+        document.getElementById('username').textContent = email;
+        toggleView('welcome');
+    } else {
+        alert('Invalid email or password');
+    }
+});
+
+// Simulate logout
+function logout() {
+    document.getElementById('username').textContent = '';
+    toggleView('loginForm');
+}
