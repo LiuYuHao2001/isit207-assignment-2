@@ -1,28 +1,4 @@
-let loggedIn = false;
-
-// Login-Logout Handler
-function loginHandler(username, password) {
-    for (i = 0; i < userDatabase.length; i++) {
-        if (username == userDatabase[i].username) {
-            if (password == userDatabase[i].password) {
-                loggedIn = true;
-                console.log("User " + username + " has logged in.")
-                window.location.replace("index.html");
-            }
-        }
-        else console.log("Wrong username or password");
-    }
-
-    if (loggedIn == false) {
-        document.getElementById("loginButton").textContent = "Logout";
-    }
-    else {
-        loggedIn = false;
-        document.getElementById("loginButton").textContent = "Login";
-        console.log("User has logged out.")
-    }
-}
-
+// Front-End Handler
 // Tab Handler
 const tabList = document.querySelectorAll('[data-tab-target]')
 const tabContents = document.querySelectorAll('[data-tab-content]')
@@ -43,32 +19,59 @@ tabList.forEach(tab => {
     })
 })
 
-// Front-End Input Handler
-
 // Login & Registration
-class Login {
-    constructor(username, password) {
-        this.username = username;
-        this.password = password;
-    }
+// Helper to toggle views
+function toggleView(idToShow) {
+    const forms = ['loginForm', 'registerForm', 'resetForm', 'welcome'];
+    forms.forEach(id => {
+        document.getElementById(id).classList.add('hidden');
+    });
+    document.getElementById(idToShow).classList.remove('hidden');
 }
 
-const employee1 = new Login("Employee", "password");
-const customer1 = new Login("Test User", "password");
-let newCustomer = new Login(null, null);
+// Registration
+document.getElementById('registerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    localStorage.setItem('userEmail', email);
+    localStorage.setItem('userPassword', password);
+    alert('Registration successful. You can now log in.');
+    toggleView('loginForm');
+});
 
-let userDatabase = [employee1, customer1]
-loginForm = getElementById("login-form");
+// Login
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    const savedEmail = localStorage.getItem('userEmail');
+    const savedPassword = localStorage.getItem('userPassword');
+    if (email === savedEmail && password === savedPassword) {
+        document.getElementById('userEmail').textContent = email;
+        toggleView('welcome');
+    } else {
+        alert('Invalid email or password');
+    }
+});
 
-// Check if input is correct
-let loginButton = document.getElementById("login-button");
-loginButton.addEventListener("click", loginHandler(loginForm.username, loginForm.password));
+// Reset Password
+document.getElementById('resetForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const resetEmail = document.getElementById('resetEmail').value;
+    const savedEmail = localStorage.getItem('userEmail');
+    if (resetEmail === savedEmail) {
+        alert('Password reset link sent to your email (simulated)');
+        toggleView('loginForm');
+    } else {
+        alert('Email not found in system.');
+    }
+});
 
-let signUpButton = document.getElementById("sign-up-button");
-signUpButton.addEventListener("click", SignUp(loginForm.username, loginForm.password));
-
-function SignUp(username, password) {
-    userDatabase[userDatabase.length++] = new Login(username, password);
+// Logout
+function logout() {
+    document.getElementById('userEmail').textContent = '';
+    toggleView('loginForm');
 }
 
 // Simulated Back-End
@@ -89,48 +92,3 @@ let inspected; // Boolean
 let rentalCost = dailyRent * rentDuration;
 let damageCost;
 let paymentDue = rentalCost + damageCost;
-
-// let inputtedUsername
-// let inputtedPassword
-
-
-// Helper to toggle views
-function toggleView(idToShow) {
-    const forms = ['loginForm', 'registerForm', 'resetForm', 'welcome'];
-    forms.forEach(id => {
-        document.getElementById(id).classList.add('hidden');
-    });
-    document.getElementById(idToShow).classList.remove('hidden');
-}
-
-// Simulate register
-document.getElementById('registerForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    localStorage.setItem('username', email);
-    localStorage.setItem('password', password);
-    alert('Registration successful. You can now log in.');
-    toggleView('loginForm');
-});
-
-// Simulate login
-document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = document.getElementById('inputted-username').value;
-    const password = document.getElementById('inputted-password').value;
-    const savedEmail = localStorage.getItem('username');
-    const savedPassword = localStorage.getItem('password');
-    if (email === savedEmail && password === savedPassword) {
-        document.getElementById('username').textContent = email;
-        toggleView('welcome');
-    } else {
-        alert('Invalid email or password');
-    }
-});
-
-// Simulate logout
-function logout() {
-    document.getElementById('username').textContent = '';
-    toggleView('loginForm');
-}
