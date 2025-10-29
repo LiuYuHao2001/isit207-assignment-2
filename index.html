@@ -1,226 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AZoom Rental</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- 1. Header + Navigation Bar -->
-    <header>
-       <a href="index.html" class="logo">AZoom</div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AZoom Rental</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 1. Header + Navigation Bar -->
+  <header>
+    <a href="index.html" class="logo">AZoom</div>
       <nav class="nav-menu">
-        <a href="#">Reserve</a>
-        <a href="#">Rent</a>
-        <a href="#">Return</a>
+        <a href="#cars">Reserve</a>
+        <a href="#cars">Rent</a>
+        <a href="payment.html">Return</a>
         <a href="#">Contact</a>
         <a href="#">About Us</a>
         <a href="login.html">Login</a>
       </nav>
-    </header>
+  </header>
+  <!-- 2. Hero Section -->
+  <section class="hero">
+    <video autoplay muted loop plays-inline class="back-video" id="video-player">
+      <source id="video" src="video/video2.mp4" type="video/mp4">
+    </video>
 
-    <!-- 2. Hero Section -->
-    <section class="hero">
-      <h1>Rent the Right Car, Right Now</h1>
-      <p>Fast. Affordable. Anywhere in the city.</p>
-      <button>Reserve Your Car</button>
-    </section>
+    <h1>Rent the Right Car, Right Now</h1>
+    <p>Fast. Affordable. Anywhere in the city.</p>
+    <button>Reserve Your Car</button>
+  </section>
 
-    <!-- 3. Promotion Section -->
-    <section class="promotions">
-      <div class="promo-card">Weekend Deal: 20% Off</div>
-      <div class="promo-card">Student Discount</div>
-      <div class="promo-card">Long-term Rental Bonus</div>
-    </section>
+  <!-- 3. Promotion Section -->
+  <section class="promotions">
+    <div class="promo-card">Weekend Deal: 20% Off</div>
+    <div class="promo-card">Student Discount</div>
+    <div class="promo-card">Long-term Rental Bonus</div>
+  </section>
 
-    <!-- 4. Search Section -->
-    <section class="search-form">
-      <form>
-        <input type="text" placeholder="Location" />
-        <input type="date" />
-        <select>
-          <option>Sedan</option>
-          <option>SUV</option>
-          <option>Van</option>
-        </select>
-        <button>Search</button>
-      </form>
-    </section>
+  <!-- 4. Search Section -->
+  <!-- <section class="search-form">
+    <form>
+      <input type="text" placeholder="Location" />
+      <input type="date" />
+      <select>
+        <option>Sedan</option>
+        <option>SUV</option>
+        <option>Van</option>
+      </select>
+      <button>Search</button>
+    </form>
+  </section> -->
 
-    <!-- 5. Customer Reviews -->
-    <section class="reviews">
-      <div class="review-card">⭐⭐⭐⭐⭐ Great service!</div>
-      <div class="review-card">⭐⭐⭐⭐ Clean car, on time.</div>
-      <div class="review-card">⭐⭐⭐⭐⭐ Affordable and easy!</div>
-    </section>
+  <!-- 5. Customer Reviews -->
+  <!-- <section class="reviews">
+    <div class="review-card">⭐⭐⭐⭐⭐ Great service!</div>
+    <div class="review-card">⭐⭐⭐⭐ Clean car, on time.</div>
+    <div class="review-card">⭐⭐⭐⭐⭐ Affordable and easy!</div>
+  </section> -->
 
-    <!-- 6. Car Categories / Fleet Showcase -->
-    <!-- Use cards or a grid layout to show different car types (e.g., Economy, Family, SUV, Luxury)
+  <!-- 6. Car Categories / Fleet Showcase -->
+  <!-- Use cards or a grid layout to show different car types (e.g., Economy, Family, SUV, Luxury)
     Each card has a car image, title, price range -->
 
-    <section class="cars">
-      <!-- Tab Links -->
-      <ul class="tab-list">
-        <li data-tab-target="#economy" class="active tab-link">Economy</li>
-        <li data-tab-target="#family" class="tab-link">Family</li>
-        <li data-tab-target="#suv" class="tab-link">SUV</li>
-        <li data-tab-target="#luxury" class="tab-link">Luxury</li>
-      </ul>
+  <section class="cars" id="cars">
+    <!-- Tab Links -->
+    <ul class="tab-list">
+      <li data-tab-target="#economy" class="active tab-link">Economy</li>
+      <li data-tab-target="#family" class="tab-link">Family</li>
+      <li data-tab-target="#suv" class="tab-link">SUV</li>
+      <li data-tab-target="#luxury" class="tab-link">Luxury</li>
+    </ul>
 
-      <!-- Tab Contents -->
-      <div id="economy" data-tab-content class="active car-tab">
-        <div class="card">
-          <img class="car-image" src="images/economy-honda-civic.avif" />
-          <div class="car-description">
-            <h4>Honda Civic</h4>
-            <p>S$30/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/economy-mini-cooper.avif" />
-          <div class="car-description">
-            <h4>Mini Cooper</h4>
-            <p>S$30/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/economy-toyota-corolla.avif" />
-          <div class="car-description">
-            <h4>Toyota Corolla</h4>
-            <p>S$30/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/economy-hyundai-elantra-GT.avif" />
-          <div class="car-description">
-            <h4>Hyundai Elantra GT</h4>
-            <p>S$30/day</p>
-          </div>
+    <!-- Tab Contents -->
+    <div id="economy" data-tab-content class="active car-tab">
+      <div class="card">
+        <img class="car-image" src="images/economy-honda-civic.avif" />
+        <div class="car-description">
+          <h4>Honda Civic</h4>
+          <p>S$30/day</p>
         </div>
       </div>
 
-      <div id="family" data-tab-content class="car-tab">
-        <div class="card">
-          <img class="car-image" src="images/family-chevrolet-suburban.avif" />
-          <div class="car-description">
-            <h4>Chevrolet Suburban</h4>
-            <p>S$40/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img
-            class="car-image"
-            src="images/family-chrysler-pacific-hybrid.avif"
-          />
-          <div class="car-description">
-            <h4>Chyrsler Pacific Hybrid</h4>
-            <p>S$40/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/family-kia-telluride.avif" />
-          <div class="car-description">
-            <h4>Kia Telluride</h4>
-            <p>S$40/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/family-nissan-armada.avif" />
-          <div class="car-description">
-            <h4>Nissan Armada</h4>
-            <p>S$40/day</p>
-          </div>
+      <div class="card">
+        <img class="car-image" src="images/economy-mini-cooper.avif" />
+        <div class="car-description">
+          <h4>Mini Cooper</h4>
+          <p>S$30/day</p>
         </div>
       </div>
 
-      <div id="suv" data-tab-content class="car-tab">
-        <div class="card">
-          <img class="car-image" src="images/suv-hyundai-venue.avif" />
-          <div class="car-description">
-            <h4>Hyundai Venue</h4>
-            <p>S$50/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/suv-chevrolet-trax.avif" />
-          <div class="car-description">
-            <h4>Chevrolet Trax</h4>
-            <p>S$50/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/suv-kia-niro-hybrid.avif" />
-          <div class="car-description">
-            <h4>Kia Niro Hybrid</h4>
-            <p>S$50/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/suv-volkswagen-taos.avif" />
-          <div class="car-description">
-            <h4>Volkswagen Taos</h4>
-            <p>S$50/day</p>
-          </div>
+      <div class="card">
+        <img class="car-image" src="images/economy-toyota-corolla.avif" />
+        <div class="car-description">
+          <h4>Toyota Corolla</h4>
+          <p>S$30/day</p>
         </div>
       </div>
 
-      <div id="luxury" data-tab-content class="car-tab">
-        <div class="card">
-          <img class="car-image" src="images/luxury-audi-a5.avif" />
-          <div class="car-description">
-            <h4>Audi A5</h4>
-            <p>S$200/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/luxury-bmw-3-series.avif" />
-          <div class="car-description">
-            <h4>BMW 3 Series</h4>
-            <p>S$200/day</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <img class="car-image" src="images/luxury-mercedes-benz-c300.avif" />
-          <div class="car-description">
-            <h4>Mercedes Benz C300</h4>
-            <p>S$200/day</p>
-          </div>
+      <div class="card">
+        <img class="car-image" src="images/economy-hyundai-elantra-GT.avif" />
+        <div class="car-description">
+          <h4>Hyundai Elantra GT</h4>
+          <p>S$30/day</p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- 7. Additional Sections (Optional but Encouraged)
-    Why Choose Us: List features like “24/7 Support,” “Mobile App,” “No Hidden Charges”
-    Mobile App Promo: Highlight downloadable app with QR code or download buttons
-    Partners: Logos of affiliated brands (optional) -->
-
-    <!-- 8. Footer -->
-    <footer>
-      <div class="footer-grid">
-        <div>Contact Us</div>
-        <div>Quick Links</div>
-        <div>Follow Us</div>
+    <div id="family" data-tab-content class="car-tab">
+      <div class="card">
+        <img class="car-image" src="images/family-chevrolet-suburban.avif" />
+        <div class="car-description">
+          <h4>Chevrolet Suburban</h4>
+          <p>S$40/day</p>
+        </div>
       </div>
-      <div class="sitemap">
-        <a href="#">Reserve</a> | <a href="#">Rent</a> |
-        <a href="#">Return</a> | ...
-      </div>
-    </footer>
 
-    <script src="script.js" defer>
-      console.log("Javascript loaded successfully");
-    </script>
-  </body>
+      <div class="card">
+        <img class="car-image" src="images/family-chrysler-pacific-hybrid.avif" />
+        <div class="car-description">
+          <h4>Chyrsler Pacific Hybrid</h4>
+          <p>S$40/day</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="car-image" src="images/family-kia-telluride.avif" />
+        <div class="car-description">
+          <h4>Kia Telluride</h4>
+          <p>S$40/day</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="car-image" src="images/family-nissan-armada.avif" />
+        <div class="car-description">
+          <h4>Nissan Armada</h4>
+          <p>S$40/day</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="suv" data-tab-content class="car-tab">
+      <div class="card">
+        <img class="car-image" src="images/suv-hyundai-venue.avif" />
+        <div class="car-description">
+          <h4>Hyundai Venue</h4>
+          <p>S$50/day</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="car-image" src="images/suv-chevrolet-trax.avif" />
+        <div class="car-description">
+          <h4>Chevrolet Trax</h4>
+          <p>S$50/day</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="car-image" src="images/suv-kia-niro-hybrid.avif" />
+        <div class="car-description">
+          <h4>Kia Niro Hybrid</h4>
+          <p>S$50/day</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="car-image" src="images/suv-volkswagen-taos.avif" />
+        <div class="car-description">
+          <h4>Volkswagen Taos</h4>
+          <p>S$50/day</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="luxury" data-tab-content class="car-tab">
+      <div class="card">
+        <img class="car-image" src="images/luxury-audi-a5.avif" />
+        <div class="car-description">
+          <h4>Audi A5</h4>
+          <p>S$200/day</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="car-image" src="images/luxury-bmw-3-series.avif" />
+        <div class="car-description">
+          <h4>BMW 3 Series</h4>
+          <p>S$200/day</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img class="car-image" src="images/luxury-mercedes-benz-c300.avif" />
+        <div class="car-description">
+          <h4>Mercedes Benz C300</h4>
+          <p>S$200/day</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Additional Sections (Optional but Encouraged)
+    Why Choose Us: List features like “24/7 Support,” “Mobile App,” “No Hidden Charges” -->
+  <section class="why" id="why">
+    <h2>Why Choose Us?</h2>
+
+    <h3>24/7 Support</h3>
+    <p>Get help anytime, anywhere</p>
+    <h3>Mobile App </h3>
+    <p>Convenience at your finger tips</p>
+    <h3>No Hidden Charges </h3>
+    <p>What you see is what you get</p>
+
+    <!-- Mobile App Promo: Highlight downloadable app with QR code or download buttons -->
+    <h2>Download our mobile app!</h2>
+    <p>Available now on Android and iOS</p>
+    <img class="qr-code" src="images/qrcode.png" />
+  </section>
+  <!-- Partners: Logos of affiliated brands (optional) -->
+
+  <!-- 8. Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>Contact Us</div>
+      <div>Quick Links</div>
+      <div>Follow Us</div>
+    </div>
+    <div class="sitemap">
+      <a href="#">Reserve</a> | <a href="#">Rent</a> |
+      <a href="#">Return</a> | ...
+    </div>
+  </footer>
+
+  <script src="script.js" defer>
+    console.log("Javascript loaded successfully");
+  </script>
+</body>
+
 </html>

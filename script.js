@@ -22,7 +22,7 @@ tabList.forEach(tab => {
 // Login & Registration
 // Helper to toggle views
 function toggleView(idToShow) {
-    const forms = ['loginForm', 'registerForm', 'resetForm', 'welcome'];
+    const forms = ['loginForm', 'registerForm'];
     forms.forEach(id => {
         document.getElementById(id).classList.add('hidden');
     });
@@ -47,24 +47,16 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     const password = document.getElementById('loginPassword').value;
     const savedEmail = localStorage.getItem('userEmail');
     const savedPassword = localStorage.getItem('userPassword');
+
+    if (email == "admin" && password == "admin") {
+        window.location, href = "admin.html";
+    }
+
     if (email === savedEmail && password === savedPassword) {
         document.getElementById('userEmail').textContent = email;
-        toggleView('welcome');
+        window.location.href = "index.html";
     } else {
         alert('Invalid email or password');
-    }
-});
-
-// Reset Password
-document.getElementById('resetForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const resetEmail = document.getElementById('resetEmail').value;
-    const savedEmail = localStorage.getItem('userEmail');
-    if (resetEmail === savedEmail) {
-        alert('Password reset link sent to your email (simulated)');
-        toggleView('loginForm');
-    } else {
-        alert('Email not found in system.');
     }
 });
 
@@ -92,3 +84,9 @@ let inspected; // Boolean
 let rentalCost = dailyRent * rentDuration;
 let damageCost;
 let paymentDue = rentalCost + damageCost;
+
+setInterval(ChangeVideo, 10000)
+
+function ChangeVideo() {
+    document.getElementById("video-player").setAttribute("src", "video4.mp4")
+}
