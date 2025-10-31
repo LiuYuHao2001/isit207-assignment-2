@@ -9,8 +9,13 @@ header {
     color: white;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
-    padding: 2rem;
+    padding: 0 10dvh 0 10dvh;
+    height: 15dvh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .search-bar {
@@ -179,11 +184,10 @@ footer a {
 
 .car-image {
     object-fit: cover;
-    width: 200px;
-    height: 150px;
+    width: 20rem;
+    height: 15rem;
     background-position: center center;
-    background-repeat: no-repeat;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     align-items: center;
 }
 
@@ -238,6 +242,10 @@ footer a {
 
 .card:active {
     transform: translateY(-2px);
+}
+
+.car-tab {
+    flex-wrap: wrap;
 }
 
 .card {
@@ -369,7 +377,9 @@ a {
     max-width: 100%;
     height: auto;
     position: absolute;
+    object-fit: cover;
     right: 0;
     bottom: 0;
     z-index: -1;
+    /* aspect-ratio: 16/9; */
 }
