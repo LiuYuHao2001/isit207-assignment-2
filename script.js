@@ -1,3 +1,5 @@
+let loggedIn;
+
 // Front-End Handler
 // Tab Handler
 const tabList = document.querySelectorAll('[data-tab-target]')
@@ -50,14 +52,20 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
 
     if (email == "admin@mail.com" && password == "admin") {
         window.location.href = "admin.html";
+        loggedIn = true;
     }
     else if (email === savedEmail && password === savedPassword) {
         document.getElementById('userEmail').textContent = email;
         window.location.href = "index.html";
+        loggedIn = true;
     } else {
         alert('Invalid email or password');
     }
 });
+
+if (loggedIn == true){
+    document.getElementById(log)
+}
 
 // Logout
 function logout() {

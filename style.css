@@ -197,13 +197,15 @@ footer a {
 
 .active[data-tab-content] {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 32px;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 3rem;
+    flex-wrap: wrap;
 }
 
 .tab-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     list-style-type: none;
     margin: 0;
@@ -212,31 +214,28 @@ footer a {
 
 .tab-link {
     cursor: pointer;
-    min-width: 4rem;
+    margin: 3rem 4rem 0 4rem;
     padding: 1rem;
-    margin-top: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.4rem;
+    box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.2);
     text-align: center;
+    flex-grow: 1;
+    font-size: 1.2em;
 }
 
 .tab-link.active {
+    box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.4);
     background-color: #a1a1a1;
 }
 
 .tab-link:hover {
-    background-color: #c0c0c0;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-.tab-content {
-    margin-left: 20px;
-    margin-right: 20px;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.2rem 1rem 0 rgba(0, 0, 0, 0.2);
     border-color: #007bff;
 }
 
