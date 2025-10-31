@@ -5,20 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login and Registration</title>
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
     <header>
-        <a href="index.html" class="logo">AZoom</div>
-            <nav class="nav-menu">
-                <a href="#">Reserve</a>
-                <a href="#">Rent</a>
-                <a href="#">Return</a>
-                <a href="#">Contact</a>
-                <a href="#">About Us</a>
-                <a href="login.html">Login</a>
-            </nav>
+        <a href="index.html" class="logo">AZoom</a>
+        <input type="text" placeholder="Search for..." class="search-bar">
+        <nav class="nav-menu">
+            <a href="#cars">Reserve</a>
+            <a href="#cars">Rent</a>
+            <a href="payment.html">Return</a>
+            <a href="#">Contact</a>
+            <a href="#">About Us</a>
+            <a href="login.html">Login</a>
+        </nav>
     </header>
 
     <div class="login-form">
@@ -47,14 +49,38 @@
         </div>
     </div>
     <footer>
-        <div class="footer-grid">
-            <div>Contact Us</div>
-            <div>Quick Links</div>
-            <div>Follow Us</div>
+        <div>
+            <h3>Contact Us</h3>
+            <a href="#">Tel: +65 87654321</a>
+            <a href="#">Whatsapp</a>
+            <a href="#">Telegram</a>
+            <a href="#">Fax: +65 87654321</a>
+            <a href="#">Open 24/7</a>
         </div>
-        <div class="sitemap">
-            <a href="#">Reserve</a> | <a href="#">Rent</a> |
-            <a href="#">Return</a> | ...
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#cars">Reserve</a>
+            <a href="#cars">Rent</a>
+            <a href="payment.html">Return</a>
+            <a href="#">Contact</a>
+            <a href="#">About Us</a>
+        </div>
+
+        <div>
+            <h3>Follow Us</h3>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">YouTube</a>
+            <a href="#">Facebook</a>
+        </div>
+
+        <!-- Mobile App Promo: Highlight downloadable app with QR code or download buttons -->
+        <div>
+            <h3>Download our mobile app!</h3>
+            <p>Available now on Android and iOS</p>
+            <img class="qr-code" src="images/qrcode.png" alt="" />
+            <p>Scan the QR code above, or look up<br>the AZoom app in Play Store or Apple Store</p>
         </div>
     </footer>
     <script src="script.js"></script>

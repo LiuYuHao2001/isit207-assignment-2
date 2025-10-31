@@ -48,11 +48,10 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     const savedEmail = localStorage.getItem('userEmail');
     const savedPassword = localStorage.getItem('userPassword');
 
-    if (email == "admin" && password == "admin") {
-        window.location, href = "admin.html";
+    if (email == "admin@mail.com" && password == "admin") {
+        window.location.href = "admin.html";
     }
-
-    if (email === savedEmail && password === savedPassword) {
+    else if (email === savedEmail && password === savedPassword) {
         document.getElementById('userEmail').textContent = email;
         window.location.href = "index.html";
     } else {
@@ -65,6 +64,30 @@ function logout() {
     document.getElementById('userEmail').textContent = '';
     toggleView('loginForm');
 }
+
+// document.getElementsByClassName("card").addEventListener("click", VehicleChosen());
+
+// function VehicleChosen() {
+//     window.location.href = "payment.html";
+// }
+
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function () {
+        const carId = this.getAttribute('data-car-id');
+        // Redirect with car ID in URL
+        window.location.href = `payment.html?carId=${carId}`;
+    });
+});
+
+// payment.html
+function getCarIdFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('carId');
+}
+
+// Use the car ID to display specific content
+const selectedCarId = getCarIdFromURL();
+console.log('Showing details for car:', selectedCarId);
 
 // Simulated Back-End
 
@@ -84,9 +107,3 @@ let inspected; // Boolean
 let rentalCost = dailyRent * rentDuration;
 let damageCost;
 let paymentDue = rentalCost + damageCost;
-
-setInterval(ChangeVideo, 10000)
-
-function ChangeVideo() {
-    document.getElementById("video-player").setAttribute("src", "video4.mp4")
-}
