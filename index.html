@@ -13,14 +13,14 @@
     <!-- 1. Header + Navigation Bar -->
     <header>
         <a href="index.html" class="logo">AZoom</a>
-        <!-- <input type="text" placeholder="Search for..." class="search-bar"> -->
+        <input type="text" placeholder="Search for..." class="search-bar">
         <nav class="nav-menu">
             <a href="index.html#categories">Reserve</a>
             <a href="index.html#categories">Rent</a>
             <a href="index.html#categories">Return</a>
             <a href="#">Contact</a>
             <a href="#">About Us</a>
-            <a href="login.html">Login</a>
+            <a href="login.html" id="login">Login</a>
         </nav>
     </header>
 
@@ -52,7 +52,6 @@
     <!-- 6. Car Categories / Fleet Showcase -->
     <!-- Use cards or a grid layout to show different car types (e.g., Economy, Family, SUV, Luxury)
   Each card has a car image, title, price range -->
-
     <section class="categories" id="categories">
         <!-- Tab Links -->
         <ul class="tab-list">
@@ -64,7 +63,7 @@
 
         <!-- Tab Contents -->
         <div id="economy" data-tab-content class="active car-tab">
-            <div class="card" data-car-id="1">
+            <div class="card" data-car-id="honda-civic" data-car-price="30">
                 <img class="car-image" src="images/economy-honda-civic.avif" alt="" />
                 <div class="car-description">
                     <h4>Honda Civic</h4>
@@ -72,7 +71,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="mini-cooper" data-car-price="30">
                 <img class="car-image" src="images/economy-mini-cooper.avif" alt="" />
                 <div class="car-description">
                     <h4>Mini Cooper</h4>
@@ -80,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="card">
+           <div class="card" data-car-id="toyota-corolla" data-car-price="30">
                 <img class="car-image" src="images/economy-toyota-corolla.avif" alt="" />
                 <div class="car-description">
                     <h4>Toyota Corolla</h4>
@@ -88,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="hyundai-elantra" data-car-price="30">
                 <img class="car-image" src="images/economy-hyundai-elantra-GT.avif" alt="" />
                 <div class="car-description">
                     <h4>Hyundai Elantra GT</h4>
@@ -96,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="subaru-impreza" data-car-price="30">
                 <img class="car-image" src="images/economy-subaru-impreza.avif" alt="" />
                 <div class="car-description">
                     <h4>Subaru Impreza</h4>
@@ -106,7 +105,7 @@
         </div>
 
         <div id="family" data-tab-content class="car-tab">
-            <div class="card">
+            <div class="card" data-car-id="chevrolet-suburban" data-car-price="40">
                 <img class="car-image" src="images/family-chevrolet-suburban.avif" alt="" />
                 <div class="car-description">
                     <h4>Chevrolet Suburban</h4>
@@ -114,7 +113,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="chrysler-pacific" data-car-price="40">
                 <img class="car-image" src="images/family-chrysler-pacific-hybrid.avif" alt="" />
                 <div class="car-description">
                     <h4>Chrysler Pacific Hybrid</h4>
@@ -122,7 +121,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="kia-telluride" data-car-price="40">
                 <img class="car-image" src="images/family-kia-telluride.avif" alt="" />
                 <div class="car-description">
                     <h4>Kia Telluride</h4>
@@ -130,7 +129,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="nissan-armada" data-car-price="40">
                 <img class="car-image" src="images/family-nissan-armada.avif" alt="" />
                 <div class="car-description">
                     <h4>Nissan Armada</h4>
@@ -140,7 +139,7 @@
         </div>
 
         <div id="suv" data-tab-content class="car-tab">
-            <div class="card">
+            <div class="card" data-car-id="hyundai-venue" data-car-price="50">
                 <img class="car-image" src="images/suv-hyundai-venue.avif" alt="" />
                 <div class="car-description">
                     <h4>Hyundai Venue</h4>
@@ -148,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="chevrolet-trax" data-car-price="50">
                 <img class="car-image" src="images/suv-chevrolet-trax.avif" alt="" />
                 <div class="car-description">
                     <h4>Chevrolet Trax</h4>
@@ -156,7 +155,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="kia-niro" data-car-price="50">
                 <img class="car-image" src="images/suv-kia-niro-hybrid.avif" alt="" />
                 <div class="car-description">
                     <h4>Kia Niro Hybrid</h4>
@@ -164,7 +163,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="volkswagen-taos" data-car-price="50">
                 <img class="car-image" src="images/suv-volkswagen-taos.avif" alt="" />
                 <div class="car-description">
                     <h4>Volkswagen Taos</h4>
@@ -174,7 +173,7 @@
         </div>
 
         <div id="luxury" data-tab-content class="car-tab">
-            <div class="card">
+            <div class="card" data-car-id="audi-a5" data-car-price="200">
                 <img class="car-image" src="images/luxury-audi-a5.avif" alt="" />
                 <div class="car-description">
                     <h4>Audi A5</h4>
@@ -182,7 +181,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="bmw-3" data-car-price="200">
                 <img class="car-image" src="images/luxury-bmw-3-series.avif" alt="" />
                 <div class="car-description">
                     <h4>BMW 3 Series</h4>
@@ -190,7 +189,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-car-id="mercedez-benz-c300" data-car-price="200">
                 <img class="car-image" src="images/luxury-mercedes-benz-c300.avif" alt="" />
                 <div class="car-description">
                     <h4>Mercedes Benz C300</h4>
@@ -269,7 +268,7 @@
         </div>
     </footer>
 
-    <script src="script.js" defer>
+    <script src="script.js">
         console.log("Javascript loaded successfully");
     </script>
 </body>

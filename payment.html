@@ -23,44 +23,54 @@
     </nav>
   </header>
 
-  <h1>Payment</h1>
 
-  <div id="stage-1" class="active staging payment-info">
-    <p>You have chosen X vehicle</p>
-    <p>The hourly cost is S$X</p>
-    <p>Please enter your credit card information.</p>
-    <input type="text" />
-    <p>The total will be charged once the car has been returned.</p>
-  </div>
+  <main class="container">
+    <section class="booking-section">
+      <h2>Complete Your Booking</h2>
 
-  <div id="stage-2" class="staging pick-up">
-    <p>Thank you. Please collect your vehicle at the pick-up point.</p>
-    <p>Upon pickup, you will be billed by the hour.</p>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7444038605813!2d103.77359957502496!3d1.3294011986579968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1080893304bd%3A0xc889e76f4e447e42!2sSIM%20Global%20Education!5e0!3m2!1sen!2ssg!4v1760142579104!5m2!1sen!2ssg"
-      width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <p>You may return the vehicle whenever you are ready.</p>
-    <input type="button" value="Return Vehicle" />
-  </div>
+      <div class="booking-summary">
+        <h3>Selected Vehicle</h3>
+        <div id="car-display" class="car-display">
+          <img id="car-image" src="" alt="Selected Car" class="selected-car-image">
+          <div class="car-details">
+            <h4 id="car-title">Car Name</h4>
+            <p id="car-price" class="price">Price</p>
+          </div>
+        </div>
+      </div>
 
-  <div id="stage-3" class="staging return">
-    <p>Please deliver the vehicle to your nearest drop-off point.</p>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7444038605813!2d103.77359957502496!3d1.3294011986579968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1080893304bd%3A0xc889e76f4e447e42!2sSIM%20Global%20Education!5e0!3m2!1sen!2ssg!4v1760142579104!5m2!1sen!2ssg"
-      width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
+      <form id="paymentForm" class="payment-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rentalPeriod">Rental Period</label>
+            <select id="rentalPeriod" required>
+              <option value="">Select period</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly (5% discount)</option>
+              <option value="monthly">Monthly (10% discount)</option>
+            </select>
+          </div>
 
-  <div id="stage-4" class="staging inspection">
-    <p>Our staff will now inspect the vehicle for damage.</p>
-  </div>
+          <div class="form-group">
+            <label for="pickupBranch">Pickup Branch</label>
+            <select id="pickupBranch" required>
+              <option value="">Select branch</option>
+              <option value="downtown">Downtown Branch</option>
+              <option value="airport">Airport Branch</option>
+            </select>
+          </div>
+        </div>
 
-  <div id="stage-5" class="staging payment">
-    <p>Rental Cost:</p>
-    <p>Damages:</p>
-    <h3>Fees Payable:</h3>
-  </div>
+        <div class="form-group">
+          <label for="cardNumber">Credit Card Number</label>
+          <input type="text" id="cardNumber" placeholder="8888 8888 8888 8888" required maxlength="19">
+        </div>
+
+        <button type="submit" class="btn-primary btn-pay">Complete Booking - S$0.00</button>
+      </form>
+    </section>
+  </main>
+
 
   <footer>
     <div>
@@ -97,6 +107,10 @@
       <p>Scan the QR code above, or look up<br>the AZoom app in Play Store or Apple Store</p>
     </div>
   </footer>
+
+  <script src="script.js">
+    console.log("Javascript loaded successfully");
+  </script>
 </body>
 
 </html>
