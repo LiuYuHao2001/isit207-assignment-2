@@ -26,10 +26,8 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
     const savedEmail = localStorage.getItem('userEmail');
     const savedPassword = localStorage.getItem('userPassword');
 
-     if (email === savedEmail && password === savedPassword) {
-        document.getElementById('userEmail').textContent = email;
+     if (email == savedEmail && password == savedPassword) {
         localStorage.setItem('loggedIn', 'true');
-        localStorage.setItem('userEmail', email);
         window.location.href = "index.html";
     } else {
         alert('Invalid email or password');
