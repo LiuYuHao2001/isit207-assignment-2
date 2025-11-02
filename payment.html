@@ -2,133 +2,134 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="reset.css" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Document</title>
+    <link href="reset.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
 </head>
 
 <body>
-  <header>
-    <a href="index.html" class="logo">AZoom</a>
-    <input type="text" placeholder="Search for..." class="search-bar">
+<header>
+    <a class="logo" href="index.html">AZoom</a>
+    <label>
+        <input class="search-bar" placeholder="Search for..." type="text">
+    </label>
     <nav class="nav-menu">
-      <a href="index.html#categories">Reserve</a>
-      <a href="index.html#categories">Rent</a>
-      <a href="index.html#categories">Return</a>
-      <a href="#">Contact</a>
-      <a href="#">About Us</a>
-      <a href="login.html">Login</a>
+        <a href="index.html#categories">Reserve</a>
+        <a href="index.html#categories">Rent</a>
+        <a href="index.html#categories">Return</a>
+        <a href="#">Contact</a>
+        <a href="#">About Us</a>
+        <a href="login.html">Login</a>
     </nav>
-  </header>
+</header>
 
 
-  <main class="container">
+<main class="container">
     <section class="booking-section">
-      <h2>Complete Your Booking</h2>
+        <h2>Complete Your Booking</h2>
 
-      <div class="booking-summary">
-        <form id="paymentForm" class="payment-form">
-          <div id="car-display" class="car-display">
-            <img id="car-image" src="" alt="Selected Car" class="selected-car-image">
-            <div class="car-details">
-              <h4 id="car-name">Car Name</h4>
-              <p id="car-price" class="price">Price</p>
+        <div class="booking-summary">
+            <div class="car-display" id="car-display">
+                <img alt="Selected Car" class="selected-car-image" id="car-image" src="">
+                <div class="car-details">
+                    <h4 id="car-name">Car Name</h4>
+                    <p class="price" id="car-price">Price</p>
+                </div>
             </div>
-          </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="pickupBranch">Pickup Branch</label>
-              <select id="pickupBranch" required>
-                <option>Select branch</option>
-                <option>Woodlands Branch</option>
-                <option>Clementi Branch</option>
-              </select>
+            <div class="form-row step active" id="step1">
+                <div class="form-group">
+                    <label for="pickupBranch">Pickup Branch</label>
+                    <select id="pickupBranch" required>
+                        <option>Select branch</option>
+                        <option>Woodlands Branch</option>
+                        <option>Clementi Branch</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Credit Card Number</label>
+                    <input id="cardNumber" maxlength="16" placeholder="8888 8888 8888 8888" required type="text">
+                </div>
+                <button class="payment-button" onclick="nextStep()">Book Vehicle</button>
             </div>
-            <div class="form-group">
-              <label for="cardNumber">Credit Card Number</label>
-              <input type="text" id="cardNumber" placeholder="8888 8888 8888 8888" required maxlength="12">
-            </div>
-          </div>
-          <button type="submit" class="btn-primary btn-pay">Book Vehicle</button>
-        </form>
 
-        <div id="confirmation" class="hidden">
-          <h2>Booking Confirmed! 🎉</h2>
-          <p>Your car rental has been successfully booked.</p>
+            <div class="step" id="step2">
+                <h2>Booking Confirmed!</h2>
+                <p>Please pick up your vehicle at the following location.</p>
+
+                <iframe allowfullscreen=""
+                        height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4217.266218665091!2d103.7735995752153!3d1.3294011986579968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1080893304bd%3A0xc889e76f4e447e42!2sSIM%20Global%20Education!5e1!3m2!1sen!2ssg!4v1762055149715!5m2!1sen!2ssg"
+                        style="border:0;"
+                        width="600"></iframe>
+                <button class="payment-button" onclick="nextStep()">I have the vehicle</button>
+            </div>
+
+            <div class="step" id="step3">
+                <h2>Thank you for doing business with us</h2>
+                <p>The vehicle can be returned whenever you wish. Your account will be charged accordingly.</p>
+                <iframe allowfullscreen=""
+                        height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4217.266218665091!2d103.7735995752153!3d1.3294011986579968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1080893304bd%3A0xc889e76f4e447e42!2sSIM%20Global%20Education!5e1!3m2!1sen!2ssg!4v1762055149715!5m2!1sen!2ssg"
+                        style="border:0;"
+                        width="600"></iframe>
+                <p>Please drop off the vehicle at the location and click "Return"</p>
+                <div class="step-buttons">
+                    <button class="payment-button" onclick="nextStep()">Return</button>
+                </div>
+            </div>
+
+            <div class="step" id="step4">
+                <h2>Our employee will now examine the vehicle for damages</h2>
+                <p>Your final bill will be sent to your email after this inspection.</p>
+                <p>The fees payable will be charged directly to your account.</p>
+                <p>No further action is required.</p>
+            </div>
         </div>
-      </div>
-
-      <!-- Step 1: Car Selection -->
-      <div id="step1" class="step">
-        <div class="card" data-car-id="mini-cooper" data-car-price="30">
-          <!-- car content -->
-        </div>
-        <button onclick="nextStep()">Select Car</button>
-      </div>
-
-      <!-- Step 2: Rental Options -->
-      <div id="step2" class="step" style="display: none;">
-        <form id="paymentForm">
-          <!-- form content -->
-        </form>
-        <button onclick="nextStep()">Continue to Payment</button>
-      </div>
-
-      <!-- Step 3: Payment -->
-      <div id="step3" class="step" style="display: none;">
-        <h3>Payment Details</h3>
-        <button onclick="nextStep()">Complete Payment</button>
-      </div>
-
-      <!-- Step 4: Confirmation -->
-      <div id="step4" class="step" style="display: none;">
-        <h2>Booking Confirmed! 🎉</h2>
-      </div>
     </section>
-  </main>
+</main>
 
-  <footer>
+<footer>
     <div>
-      <h3>Contact Us</h3>
-      <a href="#">Tel: +65 87654321</a>
-      <a href="#">Whatsapp</a>
-      <a href="#">Telegram</a>
-      <a href="#">Fax: +65 87654321</a>
-      <a href="#">Open 24/7</a>
+        <h3>Contact Us</h3>
+        <a href="#">Tel: +65 87654321</a>
+        <a href="#">Whatsapp</a>
+        <a href="#">Telegram</a>
+        <a href="#">Fax: +65 87654321</a>
+        <a href="#">Open 24/7</a>
     </div>
 
     <div>
-      <h3>Quick Links</h3>
-      <a href="#cars">Reserve</a>
-      <a href="#cars">Rent</a>
-      <a href="payment.html">Return</a>
-      <a href="#">Contact</a>
-      <a href="#">About Us</a>
+        <h3>Quick Links</h3>
+        <a href="#">Reserve</a>
+        <a href="#">Rent</a>
+        <a href="#">Return</a>
+        <a href="#">Contact</a>
+        <a href="#">About Us</a>
     </div>
 
     <div>
-      <h3>Follow Us</h3>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <a href="#">YouTube</a>
-      <a href="#">Facebook</a>
+        <h3>Follow Us</h3>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">YouTube</a>
+        <a href="#">Facebook</a>
     </div>
 
     <!-- Mobile App Promo: Highlight downloadable app with QR code or download buttons -->
     <div>
-      <h3>Download our mobile app!</h3>
-      <p>Available now on Android and iOS</p>
-      <img class="qr-code" src="images/qrcode.png" alt="" />
-      <p>Scan the QR code above, or look up<br>the AZoom app in Play Store or Apple Store</p>
+        <h3>Download our mobile app!</h3>
+        <p>Available now on Android and iOS</p>
+        <img alt="" class="qr-code" src="images/qrcode.png"/>
+        <p>Scan the QR code above, or look up<br>the AZoom app in Play Store or Apple Store</p>
     </div>
-  </footer>
+</footer>
 
-  <script src="payment.js">
+<script src="payment.js">
     console.log("Javascript loaded successfully");
-  </script>
+</script>
 </body>
 
 </html>
